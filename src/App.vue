@@ -25,32 +25,50 @@ export default {
     //   "./assets/images/grid/2.png",
     // ];
 
+    const importImage = (r) => {
+      // r.keys().forEach((key) => {
+      //   gridData.push({
+      //     id: 1,
+      //     path: r(key),
+      //   });
+      // });
+      for (let i = 0; i < r.keys().length; i++) {
+        gridData.push({
+          id: i,
+          path: r(r.keys()[i]),
+        });
+      }
+    };
+
     const gridData = [
-      {
-        id: 1,
-        path: require("./assets/images/grid/1.png"),
-      },
-      {
-        id: 2,
-        path: require("./assets/images/grid/1.png"),
-      },
-      {
-        id: 3,
-        path: require("./assets/images/grid/1.png"),
-      },
-      {
-        id: 4,
-        path: require("./assets/images/grid/1.png"),
-      },
-      {
-        id: 5,
-        path: require("./assets/images/grid/1.png"),
-      },
-      {
-        id: 6,
-        path: require("./assets/images/grid/1.png"),
-      },
+      // {
+      //   id: 1,
+      //   path: require("./assets/images/grid/1.png"),
+      // },
+      // {
+      //   id: 2,
+      //   path: require("./assets/images/grid/1.png"),
+      // },
+      // {
+      //   id: 3,
+      //   path: require("./assets/images/grid/1.png"),
+      // },
+      // {
+      //   id: 4,
+      //   path: require("./assets/images/grid/1.png"),
+      // },
+      // {
+      //   id: 5,
+      //   path: require("./assets/images/grid/1.png"),
+      // },
+      // {
+      //   id: 6,
+      //   path: require("./assets/images/grid/1.png"),
+      // },
     ];
+
+    importImage(require.context("./assets/images/grid/", true, /\.png$/));
+    console.log(gridData);
 
     return { gridData };
   },
