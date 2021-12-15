@@ -1,10 +1,11 @@
 module.exports = {
-  content: [
-    "./public/index.html",
-    "./src/**/*.{vue,js,jsx}"
-  ],
+  content: ["./public/index.html", "./src/**/*.{vue,js,jsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sora: ["Sora", "sans-serif"],
+      },
+    },
   },
   plugins: [],
-}
+};
