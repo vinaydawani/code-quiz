@@ -1,9 +1,11 @@
 <template>
   <section class="h-screen flex flex-col">
-    <div class="text-center">
-      <span class="uppercase font-sora">meet the team</span>
+    <div class="mt-4 text-center place-self-center">
+      <span class="uppercase font-sora text-xl text-gray-700"
+        >meet the team</span
+      >
     </div>
-    <div class="w-2/3 place-self-center">
+    <div class="w-2/3 py-6 place-self-center">
       <gridComp :data="gridData"></gridComp>
     </div>
   </section>
@@ -16,22 +18,9 @@ export default {
   name: "App",
   components: { gridComp },
   setup() {
-    // const gridData = [
-    //   "./assets/images/grid/1.png",
-    //   "./assets/images/grid/2.png",
-    //   "./assets/images/grid/1.png",
-    //   "./assets/images/grid/2.png",
-    //   "./assets/images/grid/1.png",
-    //   "./assets/images/grid/2.png",
-    // ];
+    const gridData = [];
 
     const importImage = (r) => {
-      // r.keys().forEach((key) => {
-      //   gridData.push({
-      //     id: 1,
-      //     path: r(key),
-      //   });
-      // });
       for (let i = 0; i < r.keys().length; i++) {
         gridData.push({
           id: i,
@@ -40,35 +29,7 @@ export default {
       }
     };
 
-    const gridData = [
-      // {
-      //   id: 1,
-      //   path: require("./assets/images/grid/1.png"),
-      // },
-      // {
-      //   id: 2,
-      //   path: require("./assets/images/grid/1.png"),
-      // },
-      // {
-      //   id: 3,
-      //   path: require("./assets/images/grid/1.png"),
-      // },
-      // {
-      //   id: 4,
-      //   path: require("./assets/images/grid/1.png"),
-      // },
-      // {
-      //   id: 5,
-      //   path: require("./assets/images/grid/1.png"),
-      // },
-      // {
-      //   id: 6,
-      //   path: require("./assets/images/grid/1.png"),
-      // },
-    ];
-
     importImage(require.context("./assets/images/grid/", true, /\.png$/));
-    console.log(gridData);
 
     return { gridData };
   },
@@ -78,5 +39,29 @@ export default {
 <style>
 body {
   height: 100%;
+}
+
+span {
+  letter-spacing: 0.2em !important;
+}
+
+span::after {
+  content: "";
+  display: inline-block;
+  background-color: black;
+  width: 25vw;
+  height: 1px;
+  margin-left: 1.5rem;
+  vertical-align: middle;
+}
+
+span::before {
+  content: "";
+  display: inline-block;
+  background-color: black;
+  width: 25vw;
+  height: 1px;
+  margin-right: 1.5rem;
+  vertical-align: middle;
 }
 </style>
